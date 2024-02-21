@@ -11,5 +11,9 @@ namespace OppConcepts
         public int Hours { get; set; }
         public decimal HourValue { get; set; }
 
+        public override decimal GetPayment()
+        {
+            return Hours * HourValue;
+        }
     }
 }

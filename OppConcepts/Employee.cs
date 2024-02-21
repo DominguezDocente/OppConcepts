@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OppConcepts
 {
-    public  class Employee
+    public  abstract class Employee : IPay
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -14,18 +14,11 @@ namespace OppConcepts
         public string Document { get; set; }
         public Date Birthdate { get; set; }
 
-        public Employee()
-        {
+        public abstract decimal GetPayment();
 
-        }
-
-        public Employee(int id, string name, string role, string document, Date birthdate)
+        public int test()
         {
-            Id = id;
-            Name = name;
-            Role = role;
-            Document = document;
-            Birthdate = birthdate;
+            throw new NotImplementedException();
         }
 
         public override string ToString()

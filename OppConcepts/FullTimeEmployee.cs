@@ -9,5 +9,10 @@ namespace OppConcepts
     public class FullTimeEmployee : Employee
     {
         public decimal Salary { get; set; }
+
+        public override decimal GetPayment()
+        {
+            return Salary;
+        }
     }
 }
