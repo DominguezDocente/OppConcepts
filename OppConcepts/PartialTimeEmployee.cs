@@ -15,5 +15,13 @@ namespace OppConcepts
         {
             return Hours * HourValue;
         }
+        public override string ToString()
+        {
+            return base.ToString() +
+                $"{Environment.NewLine} Horas Trabajadas......: {Hours}" +
+                $"{Environment.NewLine} Valor Hora............: {HourValue:C2}" +
+                $"{Environment.NewLine} ----------------------------------------" +
+                $"{Environment.NewLine} Pago..................: {GetPayment():C2}";
+        }
     }
 }

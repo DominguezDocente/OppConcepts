@@ -8,6 +8,6 @@ namespace OppConcepts
 {
     public interface IPay
     {
-        public int test();
+        public decimal GetPayment();
     }
 }

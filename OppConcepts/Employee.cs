@@ -16,14 +16,12 @@ namespace OppConcepts
 
         public abstract decimal GetPayment();
 
-        public int test()
-        {
-            throw new NotImplementedException();
-        }
-
         public override string ToString()
         {
-            return $"Empleado: {Name} | Cargo: {Role} | Documento: {Document} | Fecha de nacimiento: {Birthdate}";
+            return $" Empleado..............: {Name} " +
+                $"{Environment.NewLine} Cargo.................: {Role} " +
+                $"{Environment.NewLine} Documento.............: {Document} " +
+                $"{Environment.NewLine} Fecha de nacimiento...: {Birthdate}";
         }
     }
 }

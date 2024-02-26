@@ -14,5 +14,13 @@ namespace OppConcepts
         {
             return Salary;
         }
+
+        public override string ToString()
+        {
+            return base.ToString() +
+                $"{Environment.NewLine} Salario...............: {Salary:C2}" +
+                $"{Environment.NewLine} ----------------------------------------" +
+                $"{Environment.NewLine} Pago..................: {GetPayment():C2}";
+        }
     }
 }
