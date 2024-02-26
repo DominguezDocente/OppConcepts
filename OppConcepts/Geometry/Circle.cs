@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +30,14 @@ namespace OppConcepts.Geometry
             }
 
             return result;
+        }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}" +
+                   $"\n La figura es un Circulo" +
+                   $"\n El valor del Radio es: {Radious}" +
+                   $"\n El valor del Área es: {GetArea()}";
         }
     }
 }

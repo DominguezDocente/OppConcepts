@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +25,14 @@ namespace OppConcepts.Geometry
             }
 
             return result;
+        }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}" +
+                   $"\n La figura es un Cuadrado" +
+                   $"\n El valor de los lades es: {Side}" +
+                   $"\n El valor del Área es: {GetArea()}";
         }
     }
 }
