@@ -6,37 +6,55 @@ using System.Threading.Tasks;
 
 namespace OppConcepts.Geometry
 {
-    public class Circle
+    public class Circle : Shape
     {
-        public string Draw()
+        public double Radius { get; set; }
+
+        public override double GetArea()
         {
-            string result = " " + Environment.NewLine;
-            int x, y, radious;
-            radious = 7;
-            for (x = 0; x <= radious * 2; x++)
+            return Math.PI * Math.Pow(Radius, 2);
+        }
+        public override string Draw()
+        {
+            // Calcular el diámetro del círculo
+            double diameter = Radius * 2;
+
+            // Crear un string para almacenar el círculo
+            string circleString = "";
+
+            // Iterar sobre cada fila
+            for (double row = 0; row <= diameter; row++)
             {
-                for (y = 0; y <= radious * 2; y++)
+                // Iterar sobre cada columna
+                for (double column = 0; column <= diameter; column++)
                 {
-                    if (Math.Pow(y - radious, 2) + Math.Pow(x - radious, 2) <= (int)Math.Pow(radious, 2))
+                    // Calcular la distancia del punto actual al centro del círculo
+                    double distanceToCenter = Math.Sqrt(Math.Pow(column - Radius, 2) + Math.Pow(row - Radius, 2));
+
+                    // Si la distancia al centro es menor o igual al radio, agregar un asterisco al string, de lo contrario agregar un espacio en blanco
+                    if (distanceToCenter <= Radius)
                     {
-                        result += "*";
+                        circleString += "* ";
                     }
                     else
                     {
-                        result += " ";
+                        circleString += "  ";
                     }
                 }
-                result += " " + Environment.NewLine;
+                // Agregar un salto de línea después de cada fila
+                circleString += "\n";
             }
 
-            return result;
+            // Devolver el string que representa el círculo
+            return circleString;
         }
+
 
         public override string ToString()
         {
             return $"{base.ToString()}" +
                    $"\n La figura es un Circulo" +
-                   $"\n El valor del Radio es: {Radious}" +
+                   $"\n El valor del Radio es: {Radius}" +
                    $"\n El valor del Área es: {GetArea()}";
         }
     }

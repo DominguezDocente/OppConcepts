@@ -6,32 +6,51 @@ using System.Threading.Tasks;
 
 namespace OppConcepts.Geometry
 {
-    public class Square
+    public class Square : Shape
     {
-        public string Draw()
+        public double Side { get; set; }
+
+        public override double GetArea()
         {
-            int size, x, y;
-            size = 5;
+            return Side * Side;
+        }
+        public override string Draw()
+        {
+            // Convertir el lado a un entero para asegurar un cuadrado perfecto
+            int ingeterSide = (int)Math.Round(Side);
 
-            string result = " " + Environment.NewLine;
+            // Crear un string para almacenar el cuadrado
+            string squareString = "";
 
-            for (x = 1; x <= size; x++)
+            // Iterar sobre cada fila
+            for (int i = 0; i < ingeterSide; i++)
             {
-                for (y = 1; y <= size; y++)
+                // Iterar sobre cada columna
+                for (int j = 0; j < ingeterSide; j++)
                 {
-                    result += "*  ";
+                    // Si estamos en el borde del cuadrado, agregar un asterisco, de lo contrario agregar un espacio en blanco
+                    if (i == 0 || i == ingeterSide - 1 || j == 0 || j == ingeterSide - 1)
+                    {
+                        squareString += "* ";
+                    }
+                    else
+                    {
+                        squareString += "  ";
+                    }
                 }
-                result += " " + Environment.NewLine;
+                // Agregar un salto de línea después de cada fila
+                squareString += "\n";
             }
 
-            return result;
+            // Devolver el string que representa el cuadrado
+            return squareString;
         }
 
         public override string ToString()
         {
             return $"{base.ToString()}" +
                    $"\n La figura es un Cuadrado" +
-                   $"\n El valor de los lades es: {Side}" +
+                   $"\n El valor de los lados es: {Side}" +
                    $"\n El valor del Área es: {GetArea()}";
         }
     }

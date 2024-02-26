@@ -1,6 +1,7 @@
 
 using OppConcepts;
 using OppConcepts.Geometry;
+using System;
 
 try
 {
@@ -12,11 +13,17 @@ try
 
     Date date = new Date(2022, 5, 15);
 
-    Circle c = new Circle();
-    Console.WriteLine(c.Draw());
+    FullTimeEmployee emp2 = new FullTimeEmployee
+    {
+        Birthdate = date,
+        Document = "222",
+        Id = 2,
+        Name = "Ana",
+        Role = "CMO",
+        Salary = 3500000
+    };
 
-    Rectangle r = new Rectangle();
-    Console.WriteLine(r.Draw());
+    Console.WriteLine(emp2);
 
     Console.WriteLine("\n");
 
@@ -42,7 +49,7 @@ try
     Circle circle = new Circle
     {
         Color = "Green",
-        Radious = 7
+        Radius = 7
     };
 
     List<Shape> shapes = new List<Shape>
@@ -56,8 +63,29 @@ try
     foreach (Shape shape in shapes)
     {
         Console.WriteLine(shape);
+        Console.WriteLine(Environment.NewLine);
+
+        // LLamado para saber si el objeto implementa la interfaz
+        //if (shape is IDrawable)
+        //{
+        //    System.Reflection.MethodInfo method = typeof(IDrawable).GetMethod("Draw");
+        //    Console.WriteLine(method.Invoke(shape, null));
+        //}
+
+        switch (shape.Color)
+        {
+            case "Red": Console.ForegroundColor = ConsoleColor.Red; break;
+            case "Green": Console.ForegroundColor = ConsoleColor.Green; break;
+            case "Blue": Console.ForegroundColor = ConsoleColor.Blue; break;
+        }
+        
+        Console.WriteLine(shape.Draw());
+
+        Console.ForegroundColor = ConsoleColor.White;
+
         Console.WriteLine("=========================");
         Console.WriteLine("\n");
+
     }
 
 
