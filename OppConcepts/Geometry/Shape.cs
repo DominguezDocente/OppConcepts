@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace OppConcepts.Geometry
 {
-    public abstract class Shape
+    public abstract class Shape : IDrawable
     {
         public string Color { get; set; }
+
+        public abstract string Draw();
 
         public abstract double GetArea();
 

@@ -11,5 +11,18 @@ namespace OppConcepts
         public int Hours { get; set; }
         public decimal HourValue { get; set; }
 
+        public override decimal GetPayment()
+        {
+            return Hours * HourValue;
+        }
+        public override string ToString()
+        {
+            return base.ToString() +
+                $"{Environment.NewLine} Horas trabajadas......: {Hours}" +
+                $"{Environment.NewLine} Valor hora............: {HourValue:C2}" +
+                $"{Environment.NewLine} -----------------------------------" +
+                $"{Environment.NewLine} Pago..................: {GetPayment():C2}";
+        }
+
     }
 }

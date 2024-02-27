@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OppConcepts
 {
-    public  class Employee
+    public abstract class Employee : IPay
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -14,23 +14,14 @@ namespace OppConcepts
         public string Document { get; set; }
         public Date Birthdate { get; set; }
 
-        public Employee()
-        {
-
-        }
-
-        public Employee(int id, string name, string role, string document, Date birthdate)
-        {
-            Id = id;
-            Name = name;
-            Role = role;
-            Document = document;
-            Birthdate = birthdate;
-        }
+        public abstract decimal GetPayment();
 
         public override string ToString()
         {
-            return $"Empleado: {Name} | Cargo: {Role} | Documento: {Document} | Fecha de nacimiento: {Birthdate}";
+            return                   $" Empleado..............: {Name} " +
+                $"{Environment.NewLine} Cargo.................: {Role} " +
+                $"{Environment.NewLine} Documento.............: {Document} " +
+                $"{Environment.NewLine} Fecha de nacimiento...: {Birthdate}";
         }
     }
 }

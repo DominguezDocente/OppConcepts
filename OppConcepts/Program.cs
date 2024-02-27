@@ -1,6 +1,7 @@
 ﻿
 using OppConcepts;
 using OppConcepts.Geometry;
+using System.Reflection;
 
 try
 {
@@ -12,7 +13,7 @@ try
 
     Date date = new Date(2022, 5, 15);
 
-    FullTimeEmployee emp2 = new FullTimeEmployee
+    Employee emp1 = new FullTimeEmployee
     {
         Birthdate = date,
         Document = "222",
@@ -22,49 +23,85 @@ try
         Salary = 3500000
     };
 
-    Console.WriteLine( emp2 );
 
-    Console.WriteLine("\n");
-
-
-    Console.WriteLine("========Figuras==========");
-    Console.WriteLine("=========================");
-    Console.WriteLine("=========================");
-    Console.WriteLine("\n");
-
-    Square square = new Square
+    Employee emp2 = new PartialTimeEmployee
     {
-        Color = "Blue",
-        Side = 5
+        Birthdate = new Date(1995, 5, 13),
+        Document = "333",
+        Id = 3,
+        Name = "Jhon",
+        Role = "COO",
+        Hours = 40,
+        HourValue = 95000.5M
     };
 
-    Rectangle rectangle = new Rectangle
+    Payroll payroll = new Payroll
     {
-        Color = "Red",
-        Base = 4,
-        Height = 8,
+        Description = "Pago Nómina Febrero",
+        Id = 123,
+        PayrollDate = new Date(2024, 2, 26),
+        Employees = new List<Employee> { emp1, emp2 }
     };
 
-    Circle circle = new Circle
-    {
-        Color = "Green",
-        Radious = 7
-    };
+    Console.WriteLine(payroll);
 
-    List<Shape> shapes = new List<Shape>
-    { 
-        square,
-        rectangle,
-        circle
-    };
+    //Console.WriteLine("========Figuras==========");
+    //Console.WriteLine("=========================");
+    //Console.WriteLine("=========================");
+    //Console.WriteLine("\n");
 
-    Console.WriteLine("=========================");
-    foreach (Shape shape in shapes)
-    {
-        Console.WriteLine(shape);
-        Console.WriteLine("=========================");
-        Console.WriteLine("\n");
-    }
+    //Square square = new Square
+    //{
+    //    Color = "Blue",
+    //    Side = 5
+    //};
+
+    //Rectangle rectangle = new Rectangle
+    //{
+    //    Color = "Red",
+    //    Base = 4,
+    //    Height = 8,
+    //};
+
+    //Circle circle = new Circle
+    //{
+    //    Color = "Green",
+    //    Radius = 7
+    //};
+
+    //List<Shape> shapes = new List<Shape>
+    //{ 
+    //    square,
+    //    rectangle,
+    //    circle
+    //};
+
+
+    //Console.WriteLine("=========================");
+    //foreach (Shape shape in shapes)
+    //{
+    //    Console.WriteLine(shape);
+
+    //    //if (shape is IDrawable)
+    //    //{
+    //    //    MethodInfo method = typeof(IDrawable).GetMethod("Draw");
+    //    //    Console.WriteLine(method.Invoke(shape, null));
+    //    //}
+
+    //    switch (shape.Color)
+    //    {
+    //        case "Red": Console.ForegroundColor = ConsoleColor.Red; break;
+    //        case "Green": Console.ForegroundColor = ConsoleColor.Green; break;
+    //        case "Blue": Console.ForegroundColor = ConsoleColor.Blue; break;
+    //    }
+
+    //    Console.WriteLine(shape.Draw());
+
+    //    Console.ForegroundColor = ConsoleColor.White;
+
+    //    Console.WriteLine("=========================");
+    //    Console.WriteLine("\n");
+    //}
 
 
 

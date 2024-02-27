@@ -14,6 +14,37 @@ namespace OppConcepts.Geometry
         {
             return Side * Side;
         }
+        public override string Draw()
+        {
+            // Convertir el lado a un entero para asegurar un cuadrado perfecto
+            int ingeterSide = (int)Math.Round(Side);
+
+            // Crear un string para almacenar el cuadrado
+            string squareString = "";
+
+            // Iterar sobre cada fila
+            for (int i = 0; i < ingeterSide; i++)
+            {
+                // Iterar sobre cada columna
+                for (int j = 0; j < ingeterSide; j++)
+                {
+                    // Si estamos en el borde del cuadrado, agregar un asterisco, de lo contrario agregar un espacio en blanco
+                    if (i == 0 || i == ingeterSide - 1 || j == 0 || j == ingeterSide - 1)
+                    {
+                        squareString += "* ";
+                    }
+                    else
+                    {
+                        squareString += "  ";
+                    }
+                }
+                // Agregar un salto de línea después de cada fila
+                squareString += "\n";
+            }
+
+            // Devolver el string que representa el cuadrado
+            return squareString;
+        }
 
         public override string ToString()
         {
